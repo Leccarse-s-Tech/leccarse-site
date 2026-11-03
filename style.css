@@ -1,0 +1,694 @@
+/* =====================================================
+   Morse & Cacciatori — estilos
+   Para mudar o visual, comece pelas variáveis abaixo.
+   ===================================================== */
+
+:root {
+  /* Cores tiradas do modelo do Canva */
+  --verde:        #49f96b;   /* verde-neon do degradê */
+  --verde-fundo:  #21ce74;   /* verde mais escuro (canto superior esquerdo) */
+  --ciano:        #94f6ef;   /* ciano do meio do degradê */
+  --gelo:         #e9f5f3;   /* quase branco (canto inferior direito) */
+  --tinta:        #06180e;   /* títulos e botões */
+  --azul-cinza:   #55708a;   /* subtítulo e textos de apoio */
+
+  --fonte: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--fonte);
+  color: var(--tinta);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+img, picture, svg, video {
+  max-width: 100%;
+  height: auto;
+}
+
+h1, h2, h3 { font-family: var(--fonte); }
+
+a { color: var(--tinta); }
+
+:focus-visible {
+  outline: 3px solid var(--tinta);
+  outline-offset: 3px;
+}
+
+/* ---------- Botão principal ---------- */
+.btn-ink {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--tinta);
+  --bs-btn-border-color: var(--tinta);
+  --bs-btn-hover-color: var(--tinta);
+  --bs-btn-hover-bg: #fff;
+  --bs-btn-hover-border-color: var(--tinta);
+  --bs-btn-active-color: var(--tinta);
+  --bs-btn-active-bg: #fff;
+  --bs-btn-active-border-color: var(--tinta);
+  font-weight: 500;
+  padding: .8rem 1.8rem;
+  border-radius: 999px;
+  transition: background-color .2s, color .2s;
+}
+
+/* ---------- Menu ---------- */
+.site-nav {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 10;
+  padding-block: 1rem;
+}
+.site-nav .navbar-brand {
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--tinta);
+}
+.site-nav .nav-link {
+  color: var(--tinta);
+  font-weight: 500;
+}
+.site-nav .nav-link:hover { text-decoration: underline; text-underline-offset: 6px; }
+.site-nav .navbar-toggler { border-color: var(--tinta); }
+
+/* Menu aberto no celular: fundo para dar leitura */
+@media (max-width: 767.98px) {
+  .site-nav .navbar-collapse {
+    background: rgba(255, 255, 255, .85);
+    border-radius: 1rem;
+    margin-top: .75rem;
+    padding: .75rem 1.25rem;
+  }
+}
+
+/* ---------- Degradê do hero (reproduz o modelo) ---------- */
+.hero,
+.section-gradient {
+  background:
+    radial-gradient(120% 90% at 100% 100%, var(--gelo) 0%, rgba(233, 245, 243, 0) 55%),
+    radial-gradient(90% 80% at 85% 45%, var(--ciano) 0%, rgba(148, 246, 239, 0) 72%),
+    radial-gradient(80% 70% at 0% 0%, var(--verde-fundo) 0%, rgba(33, 206, 116, 0) 60%),
+    var(--verde);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 6rem 0 3rem;
+}
+
+.hero-figure img {
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+}
+
+.hero-figure {
+  max-width: 100%;
+}
+
+/* Link interativo dos bonecos LEGO no hero */
+.hero-avatar-link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  max-width: 100%;
+  transition: transform .3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hero-avatar-link:hover,
+.hero-avatar-link:focus-visible {
+  transform: scale(1.06);
+}
+
+.hero-avatar-link:active {
+  transform: scale(1.02);
+}
+
+/* Dica sutil abaixo dos bonecos */
+.avatar-hint {
+  display: inline-block;
+  margin-top: .75rem;
+  font-size: .9rem;
+  font-weight: 500;
+  color: var(--tinta);
+  background: rgba(255, 255, 255, .9);
+  border: 1px solid rgba(6, 24, 14, .15);
+  padding: .35rem 1rem;
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 12px rgba(6, 24, 14, .06);
+  transition: background-color .2s, transform .2s;
+}
+
+.hero-avatar-link:hover .avatar-hint {
+  background: #fff;
+  transform: translateY(-2px);
+}
+
+.hero h1 {
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  font-size: clamp(1.9rem, 4.2vw, 3.1rem);
+  line-height: 1.1;
+  margin: 0 0 1.25rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.hero-sub {
+  color: var(--azul-cinza);
+  font-size: clamp(1.25rem, 2.4vw, 1.7rem);
+  line-height: 1.35;
+  max-width: 16em;
+  margin: 0 auto 2.25rem;
+}
+
+/* Movimento de entrada dos bonecos */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-figure img { animation: entrada .9s ease-out both; }
+  @keyframes entrada {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: none; }
+  }
+}
+
+/* Respeita preferência do usuário por menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  .hero-avatar-link {
+    transition: none;
+  }
+  .hero-avatar-link:hover,
+  .hero-avatar-link:focus-visible {
+    transform: none;
+  }
+}
+
+/* Em telas pequenas os bonecos ficam um pouco menores */
+@media (max-width: 991.98px) {
+  .hero { padding-top: 5.5rem; }
+  .hero-figure img { max-width: 300px; }
+}
+
+/* ---------- Seções ---------- */
+.section { padding: 6rem 0; }
+.section-light { background: var(--gelo); }
+
+.section h2 {
+  font-weight: 500;
+  font-size: clamp(1.75rem, 3vw, 2.4rem);
+  letter-spacing: -.01em;
+  margin-bottom: 1rem;
+}
+
+.lead-muted { color: var(--azul-cinza); font-size: 1.15rem; max-width: 22em; }
+.lead-ink   { font-size: 1.15rem; max-width: 22em; }
+
+/* Serviços: lista com linhas separadoras */
+.service-list { list-style: none; margin: 0; padding: 0; }
+.service-list li {
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(6, 24, 14, .18);
+}
+.service-list li:last-child { border-bottom: 1px solid rgba(6, 24, 14, .18); }
+.service-list h3 { font-size: 1.35rem; font-weight: 500; margin: 0 0 .35rem; }
+.service-list p  { margin: 0; color: var(--azul-cinza); max-width: 36em; }
+
+/* ---------- Faixa de Tecnologias (Stack) ---------- */
+.tech-strip {
+  padding: 1.5rem 0;
+  background: #fff;
+  border-bottom: 1px solid rgba(6, 24, 14, .08);
+}
+.tech-strip-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem 1.5rem;
+}
+.tech-strip-label {
+  font-size: .88rem;
+  font-weight: 500;
+  color: var(--azul-cinza);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+.tech-strip-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+.tech-pill {
+  font-size: .85rem;
+  font-weight: 500;
+  color: var(--tinta);
+  background: var(--gelo);
+  border: 1px solid rgba(6, 24, 14, .08);
+  padding: .3rem .85rem;
+  border-radius: 999px;
+  transition: border-color .2s, background-color .2s;
+}
+.tech-pill:hover {
+  border-color: var(--tinta);
+  background: #fff;
+}
+
+/* ---------- Como Trabalhamos (Metodologia) ---------- */
+.workflow-steps {
+  display: flex;
+  flex-direction: column;
+}
+.workflow-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(6, 24, 14, .18);
+}
+.workflow-item:last-child {
+  border-bottom: 1px solid rgba(6, 24, 14, .18);
+}
+.step-num {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--azul-cinza);
+  letter-spacing: .05em;
+  min-width: 2.2rem;
+  margin-top: .1rem;
+}
+.step-body h3 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin: 0 0 .35rem;
+  color: var(--tinta);
+}
+.step-body p {
+  margin: 0;
+  color: var(--azul-cinza);
+  line-height: 1.5;
+  max-width: 38em;
+}
+
+/* ---------- Cases de Portfólio (Problema → Solução → Impacto) ---------- */
+.case-card {
+  background: #fff;
+  border: 1px solid rgba(6, 24, 14, .12);
+  border-radius: 1.25rem;
+  padding: 2.2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.case-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--tinta);
+  box-shadow: 0 8px 24px rgba(6, 24, 14, .06);
+}
+.case-badge {
+  display: inline-block;
+  font-size: .8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--azul-cinza);
+  margin-bottom: .6rem;
+}
+.case-title {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin: 0 0 1.4rem;
+  color: var(--tinta);
+}
+.case-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-grow: 1;
+  margin-bottom: 1.6rem;
+}
+.flow-step {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+}
+.flow-tag {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  padding: .15rem .5rem;
+  border-radius: 4px;
+}
+.flow-problem {
+  background: rgba(85, 112, 138, .12);
+  color: var(--azul-cinza);
+}
+.flow-solution {
+  background: rgba(33, 206, 116, .18);
+  color: #0e6e3c;
+}
+.flow-result {
+  background: rgba(6, 24, 14, .08);
+  color: var(--tinta);
+}
+.flow-step p {
+  margin: 0;
+  font-size: .95rem;
+  color: var(--azul-cinza);
+  line-height: 1.45;
+}
+.case-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(6, 24, 14, .08);
+  margin-top: auto;
+}
+.case-techs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+}
+.case-link {
+  font-size: .92rem;
+  font-weight: 500;
+  color: var(--tinta);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: opacity .2s;
+}
+.case-link:hover {
+  opacity: .75;
+}
+
+.btn-outline-ink {
+  display: inline-block;
+  color: var(--tinta);
+  border: 1px solid var(--tinta);
+  background: transparent;
+  font-weight: 500;
+  padding: .65rem 1.4rem;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background-color .2s, color .2s;
+}
+.btn-outline-ink:hover,
+.btn-outline-ink:focus-visible {
+  background: var(--tinta);
+  color: #fff;
+}
+
+/* Sobre */
+.about-text { font-size: 1.35rem; line-height: 1.5; max-width: 32em; }
+.person { font-size: 1.15rem; font-weight: 500; margin-bottom: .1rem; }
+.role   { color: var(--azul-cinza); font-weight: 500; margin-bottom: .5rem; }
+
+/* Contato */
+.contact-links { list-style: none; padding: 0; margin: 1.5rem 0 0; }
+.contact-links li { margin-bottom: 1.1rem; }
+.contact-name { display: block; font-weight: 500; }
+.contact-links a { font-size: 1.1rem; text-underline-offset: 4px; overflow-wrap: anywhere; }
+
+/* Flags / Vantagens da reunião */
+.contact-perks {
+  display: flex;
+  flex-direction: column;
+  gap: .85rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.perk-item {
+  display: flex;
+  align-items: flex-start;
+  gap: .85rem;
+  background: rgba(255, 255, 255, .7);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(6, 24, 14, .12);
+  border-radius: 1rem;
+  padding: .85rem 1.1rem;
+}
+
+.perk-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: var(--tinta);
+  color: var(--verde);
+  border-radius: 50%;
+  font-size: .8rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: .15rem;
+}
+
+.perk-item strong {
+  display: block;
+  font-size: .95rem;
+  color: var(--tinta);
+  margin-bottom: .15rem;
+}
+
+.perk-item p {
+  margin: 0;
+  font-size: .88rem;
+  color: var(--azul-cinza);
+  line-height: 1.35;
+}
+
+/* Botão WhatsApp */
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  background: #25d366;
+  color: #fff;
+  border: 1px solid #20ba5a;
+  font-weight: 500;
+  padding: .75rem 1.4rem;
+  border-radius: 999px;
+  text-decoration: none;
+  max-width: 100%;
+  text-align: center;
+  transition: background-color .2s, transform .2s, box-shadow .2s;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, .22);
+}
+
+.btn-whatsapp:hover,
+.btn-whatsapp:focus-visible {
+  background: #20ba5a;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, .32);
+}
+
+@media (max-width: 575.98px) {
+  .btn-whatsapp {
+    width: 100%;
+    padding: .75rem 1rem;
+    font-size: .92rem;
+  }
+}
+
+/* Botão WhatsApp flutuante */
+.btn-whatsapp-float {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: #25d366;
+  color: #fff;
+  padding: .75rem 1.25rem;
+  border-radius: 999px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .2);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: .95rem;
+  transition: transform .25s cubic-bezier(0.34, 1.56, 0.64, 1), background-color .2s, box-shadow .2s;
+}
+
+.btn-whatsapp-float:hover,
+.btn-whatsapp-float:focus-visible {
+  background: #20ba5a;
+  color: #fff;
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .28);
+}
+
+@media (max-width: 575.98px) {
+  .btn-whatsapp-float {
+    bottom: 1.2rem;
+    right: 1.2rem;
+    padding: .8rem;
+    border-radius: 50%;
+  }
+  .btn-whatsapp-float .btn-whatsapp-text {
+    display: none;
+  }
+}
+
+.contact-form .form-label { font-weight: 500; }
+.contact-form .form-control {
+  border: 1px solid var(--tinta);
+  border-radius: .75rem;
+  background: rgba(255, 255, 255, .7);
+  padding: .75rem 1rem;
+}
+.contact-form .form-control:focus {
+  background: #fff;
+  border-color: var(--tinta);
+  box-shadow: 0 0 0 .2rem rgba(6, 24, 14, .2);
+}
+
+.form-check-input:checked {
+  background-color: var(--tinta);
+  border-color: var(--tinta);
+}
+
+.form-status {
+  border-radius: .75rem;
+  font-size: .95rem;
+  padding: .85rem 1.25rem;
+}
+.form-status-success {
+  background-color: #d1e7dd;
+  border: 1px solid #a3cfbb;
+  color: #0a3622;
+}
+.form-status-error {
+  background-color: #f8d7da;
+  border: 1px solid #f1aeb5;
+  color: #58151c;
+}
+
+/* ---------- Rodapé ---------- */
+.site-footer {
+  padding: 1.5rem 0;
+  background: var(--tinta);
+  color: #cfe6dc;
+  font-size: .9rem;
+}
+
+/* ---------- Página de Projetos ---------- */
+.projects-header {
+  padding: 8rem 0 4rem;
+  background:
+    radial-gradient(120% 90% at 100% 100%, var(--gelo) 0%, rgba(233, 245, 243, 0) 55%),
+    radial-gradient(90% 80% at 85% 45%, var(--ciano) 0%, rgba(148, 246, 239, 0) 72%),
+    radial-gradient(80% 70% at 0% 0%, var(--verde-fundo) 0%, rgba(33, 206, 116, 0) 60%),
+    var(--verde);
+}
+
+.projects-header h1 {
+  font-weight: 500;
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  letter-spacing: -.02em;
+  margin-bottom: 1rem;
+}
+
+.project-card {
+  background: #fff;
+  border: 1px solid rgba(6, 24, 14, .12);
+  border-radius: 1.25rem;
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform .2s ease, border-color .2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--tinta);
+}
+
+.project-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: .8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--azul-cinza);
+  margin-bottom: 1rem;
+}
+
+.project-card h2 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: .75rem;
+}
+
+.project-desc {
+  color: var(--azul-cinza);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.project-card code {
+  color: var(--tinta);
+  background: var(--gelo);
+  padding: .15rem .45rem;
+  border-radius: .35rem;
+  font-size: .88em;
+  font-weight: 500;
+}
+
+.project-techs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(6, 24, 14, .08);
+}
+
+.tech-tag {
+  font-size: .8rem;
+  font-weight: 500;
+  color: var(--tinta);
+  background: var(--gelo);
+  padding: .25rem .75rem;
+  border-radius: 999px;
+}
+
+.project-cta {
+  background: var(--gelo);
+  border-radius: 1.25rem;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+

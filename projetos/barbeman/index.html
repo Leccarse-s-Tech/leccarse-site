@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BarbeMan | Barbearia (projeto fictício de demonstração)</title>
+<meta name="description" content="BarbeMan: corte clássico, barba na navalha e hora marcada. Projeto fictício de demonstração.">
+<meta name="robots" content="noindex, nofollow">
+
+<!-- Favicon SVG -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231b231f' rx='6'/%3E%3Ctext x='50%25' y='68%25' fill='%23c4a463' font-family='sans-serif' font-size='20' font-weight='200' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+
+<!-- Open Graph / Compartilhamento Social -->
+<meta property="og:title" content="BarbeMan | Barbearia (Projeto Fictício de Demonstração)">
+<meta property="og:description" content="Design minimalista em tela cheia com corte clássico, barba na navalha e agendamento via WhatsApp. Desenvolvido por Morse & Cacciatori.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/perfil-degrade.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --musgo:#1b231f;      /* fundo e escurecimento das fotos */
+  --osso:#eee9dc;       /* texto principal */
+  --osso-2:#c9c4b6;     /* texto de apoio */
+  --latao:#c4a463;      /* detalhes (preços, linha ativa) */
+  --fonte:"Jost","Century Gothic","Segoe UI",system-ui,sans-serif;
+  --margem:clamp(1.1rem,4vw,3.25rem);
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--musgo);color:var(--osso);font-family:var(--fonte);font-weight:300;overflow:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+:focus-visible{outline:2px solid var(--latao);outline-offset:4px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- palco e slides ---------- */
+.stage{position:relative;height:100vh;height:100svh;overflow:hidden}
+.slide{position:absolute;top:0;left:0;right:0;bottom:0;inset:0;opacity:0;visibility:hidden;transition:opacity .7s ease,visibility 0s .7s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .7s ease}
+.slide picture{display:block;position:absolute;top:0;left:0;right:0;bottom:0;inset:0;width:100%;height:100%;z-index:1}
+.slide img.bg{display:block;position:absolute;top:0;left:0;right:0;bottom:0;inset:0;width:100%;height:100%;object-fit:cover}
+.slide::after{content:"";position:absolute;top:0;left:0;right:0;bottom:0;inset:0;background:var(--shade);z-index:2;pointer-events:none}
+.s-inicio{--shade:linear-gradient(90deg,rgba(27,35,31,.72) 0%,rgba(27,35,31,.2) 55%,rgba(27,35,31,.05) 100%),linear-gradient(0deg,rgba(27,35,31,.7) 0%,rgba(27,35,31,0) 40%)}
+.s-precos{--shade:rgba(27,35,31,.82)}
+.s-sobre{--shade:linear-gradient(90deg,rgba(27,35,31,.88) 0%,rgba(27,35,31,.65) 60%,rgba(27,35,31,.4) 100%)}
+.s-inicio img.bg{object-position:60% 30%}
+.s-precos img.bg{object-position:50% 40%}
+.content{position:absolute;top:0;left:0;right:0;bottom:0;inset:0;z-index:3;overflow-y:auto;padding:6.5rem var(--margem) 7.5rem}
+.big{margin:0;font-weight:200;text-transform:uppercase;line-height:.95;letter-spacing:.02em}
+.s-inicio .big{font-size:clamp(3.2rem,15.5vw,14rem);margin-left:-.04em}
+.s-precos .big,.s-sobre .big{font-size:clamp(2.4rem,7.5vw,6.5rem)}
+
+/* ---------- topo ---------- */
+.top{position:absolute;z-index:5;top:0;left:0;right:0;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.6rem 2rem;padding:1.4rem var(--margem);background:linear-gradient(180deg,rgba(27,35,31,.6),rgba(27,35,31,0))}
+.brand{font-weight:500;letter-spacing:.28em;font-size:.85rem;text-transform:uppercase}
+.top nav{display:flex;gap:clamp(1rem,3vw,2.5rem);font-size:.9rem;letter-spacing:.04em}
+.top nav a,.top nav button{padding:.4rem 0;border-bottom:1px solid transparent;text-decoration:none;transition:border-color .2s}
+.top nav button[aria-current="true"]{border-color:var(--latao)}
+.top nav a:hover,.top nav button:hover{border-color:var(--osso-2)}
+
+/* ---------- slide: início ---------- */
+.s-inicio .content{display:flex;flex-direction:column}
+.lead{margin:auto 0 0;align-self:flex-end;max-width:21rem;font-size:clamp(1.05rem,1.7vw,1.3rem);line-height:1.5;color:var(--osso)}
+.lead small{display:block;margin-top:.8rem;font-size:.9rem;color:var(--osso-2)}
+.btn{display:inline-block;margin-top:1.6rem;padding:.85rem 1.7rem;border:1px solid var(--osso);border-radius:999px;font-size:.95rem;font-weight:400;text-decoration:none;transition:background-color .2s,color .2s}
+.btn:hover{background:var(--osso);color:var(--musgo)}
+
+/* ---------- slide: preços ---------- */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem clamp(2rem,6vw,6rem);margin-top:2.2rem;max-width:62rem}
+.cols h3{margin:0 0 .3rem;font-size:1.05rem;font-weight:400;color:var(--osso)}
+.section-hint{margin:0 0 .9rem;font-size:.82rem;color:var(--osso-2)}
+.rows{list-style:none;margin:0;padding:0}
+.rows li{border-top:1px solid rgba(238,233,220,.22)}
+.rows li:last-child{border-bottom:1px solid rgba(238,233,220,.22)}
+.row-link{display:flex;justify-content:space-between;align-items:baseline;gap:1.2rem;width:100%;padding:.85rem .5rem;margin:0 -.5rem;text-decoration:none;color:inherit;border-radius:4px;transition:background-color .2s ease}
+.row-link:hover,.row-link:focus-visible{background:rgba(238,233,220,.07)}
+.rows b{display:block;font-weight:400;font-size:1.15rem}
+.rows span.d{display:block;margin-top:.15rem;font-size:.9rem;color:var(--osso-2)}
+.row-price{display:flex;flex-direction:column;align-items:flex-end;flex-shrink:0}
+.rows .p{font-size:1.25rem;font-weight:400;color:var(--latao);white-space:nowrap}
+.rows .p small{font-size:.8rem;color:var(--osso-2)}
+.action-tag{font-size:.75rem;color:var(--latao);margin-top:.2rem;opacity:.7;transition:transform .2s ease,opacity .2s ease}
+.row-link:hover .action-tag,.row-link:focus-visible .action-tag{opacity:1;transform:translateX(3px)}
+.badge-rec{display:inline-block;font-size:.7rem;font-weight:500;color:var(--musgo);background:var(--latao);padding:.12rem .45rem;border-radius:3px;letter-spacing:.03em;text-transform:uppercase;margin-bottom:.35rem}
+.saving-tag{color:var(--latao);font-size:.82rem}
+
+/* ---------- slide: sobre ---------- */
+.sobre{max-width:34rem;margin-top:2.2rem;font-size:clamp(1.1rem,1.8vw,1.35rem);line-height:1.55}
+.sobre p{margin:0 0 1.1rem}
+.fatos{list-style:none;margin:2rem 0 0;padding:0;max-width:34rem;font-size:1rem}
+.fatos li{padding:.8rem 0;border-top:1px solid rgba(238,233,220,.22)}
+.fatos li:last-child{border-bottom:1px solid rgba(238,233,220,.22)}
+.fatos b{font-weight:400;color:var(--latao);margin-right:.6rem}
+.demo{margin-top:1.6rem;font-size:.82rem;color:var(--osso-2)}
+
+/* ---------- controles ---------- */
+.ctrl{position:absolute;z-index:10;left:var(--margem);bottom:clamp(1rem,3vw,2rem);display:flex;align-items:center;gap:clamp(.8rem,2vw,1.4rem);padding:.5rem .95rem .5rem .6rem;background:rgba(27,35,31,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(238,233,220,.24);border-radius:999px;box-shadow:0 6px 22px rgba(0,0,0,.3)}
+.arrow{width:2.45rem;height:2.45rem;border:1px solid rgba(238,233,220,.5);border-radius:50%;display:grid;place-items:center;font-size:1.05rem;transition:background-color .2s,color .2s}
+.arrow:hover{background:var(--osso);color:var(--musgo)}
+.count{font-size:.95rem;letter-spacing:.12em;font-variant-numeric:tabular-nums}
+.next{display:flex;align-items:center;gap:.85rem;text-align:left}
+.next img{width:2.8rem;height:2.8rem;object-fit:cover;border:1px solid rgba(238,233,220,.5);border-radius:50%}
+.next small{display:block;font-size:.78rem;color:var(--osso-2)}
+.next span{font-size:.95rem}
+
+/* ---------- aba do WhatsApp ---------- */
+.zap{position:absolute;z-index:6;right:0;bottom:clamp(1rem,3vw,2rem);display:flex;align-items:center;gap:.9rem;padding:1rem 1.6rem 1rem 1.2rem;background:rgba(27,35,31,.88);backdrop-filter:blur(6px);border:1px solid rgba(238,233,220,.28);border-right:0;border-radius:1rem 0 0 1rem;text-decoration:none;transition:background-color .2s}
+.zap:hover{background:rgba(27,35,31,1)}
+.zap svg{width:1.9rem;height:1.9rem;flex:none;color:var(--latao)}
+.zap b{display:block;font-weight:500}
+.zap small{display:block;font-size:.8rem;color:var(--osso-2)}
+
+/* ---------- celular ---------- */
+@media (max-width:760px){
+  .cols{grid-template-columns:1fr}
+  .s-inicio .big{margin-top:1rem}
+  .lead{align-self:flex-start;margin-top:2rem}
+  .next>div{display:none}
+  .stage::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5.5rem;z-index:4;pointer-events:none;background:linear-gradient(0deg,var(--musgo) 30%,rgba(27,35,31,0))}
+  .s-inicio{--shade:linear-gradient(180deg,rgba(27,35,31,.62) 0%,rgba(27,35,31,.38) 50%,rgba(27,35,31,.75) 100%)}
+  .zap{padding:.85rem .95rem}
+  .zap>div{display:none}
+  .top nav{font-size:.82rem;letter-spacing:.02em;gap:1.1rem}
+}
+@media (max-width:420px){.count{display:none}}
+@media (prefers-reduced-motion:reduce){.slide,.slide.on{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="stage" role="region" aria-roledescription="carrossel" aria-label="Apresentação da BarbeMan">
+
+  <header class="top">
+    <button class="brand" data-go="0" aria-label="BarbeMan, voltar ao início">BarbeMan</button>
+    <nav aria-label="Seções">
+      <button data-go="1">Preços e planos</button>
+      <button data-go="2">Sobre nós</button>
+      <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20quero%20agendar%20um%20hor%C3%A1rio%20na%20BarbeMan." target="_blank" rel="noopener">WhatsApp</a>
+    </nav>
+  </header>
+
+  <!-- 1: INÍCIO -->
+  <section class="slide s-inicio on" data-hash="inicio" data-title="Início" data-thumb="img/perfil-degrade.webp" aria-roledescription="slide" aria-label="1 de 3: Início">
+    <picture><source srcset="img/perfil-degrade.webp" type="image/webp"><img class="bg" src="img/perfil-degrade.jpg" alt="Cliente de perfil na cadeira, com degradê nas laterais e barba aparada."></picture>
+    <div class="content">
+      <h1 class="big">BarbeMan</h1>
+      <p class="lead">Corte clássico, barba na navalha e hora marcada para você não esperar.
+        <small>Segunda a sábado, das 9h às 20h.</small>
+        <a class="btn" href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20quero%20agendar%20um%20hor%C3%A1rio%20na%20BarbeMan." target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- 2: PREÇOS E PLANOS (valores de exemplo) -->
+  <section class="slide s-precos" data-hash="precos" data-title="Preços e planos" data-thumb="img/corte-tesoura.webp" aria-roledescription="slide" aria-label="2 de 3: Preços e planos">
+    <picture><source srcset="img/corte-tesoura.webp" type="image/webp"><img class="bg" src="img/corte-tesoura.jpg" alt="Barbeiro cortando as pontas do cabelo com tesoura."></picture>
+    <div class="content">
+      <h2 class="big">Preços &amp; planos</h2>
+      <div class="cols">
+        <div>
+          <h3>Serviços avulsos</h3>
+          <p class="section-hint">Toque para agendar direto via WhatsApp:</p>
+          <ul class="rows">
+            <li>
+              <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20quero%20agendar%20um%20hor%C3%A1rio%20para%20Corte%20na%20BarbeMan." target="_blank" rel="noopener" class="row-link" aria-label="Agendar Corte por R$ 50 via WhatsApp">
+                <div><b>Corte</b><span class="d">Tesoura ou máquina, com lavagem</span></div>
+                <div class="row-price">
+                  <span class="p">R$ 50</span>
+                  <span class="action-tag">Agendar &rarr;</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20quero%20agendar%20um%20hor%C3%A1rio%20para%20Barba%20na%20BarbeMan." target="_blank" rel="noopener" class="row-link" aria-label="Agendar Barba por R$ 40 via WhatsApp">
+                <div><b>Barba</b><span class="d">Toalha quente e navalha</span></div>
+                <div class="row-price">
+                  <span class="p">R$ 40</span>
+                  <span class="action-tag">Agendar &rarr;</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20quero%20agendar%20o%20combo%20Corte%20e%20barba%20na%20BarbeMan." target="_blank" rel="noopener" class="row-link" aria-label="Agendar Corte e barba por R$ 80 via WhatsApp">
+                <div><b>Corte e barba</b><span class="d">O combo completo</span></div>
+                <div class="row-price">
+                  <span class="p">R$ 80</span>
+                  <span class="action-tag">Agendar &rarr;</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20quero%20agendar%20Sobrancelha%20na%20BarbeMan." target="_blank" rel="noopener" class="row-link" aria-label="Agendar Sobrancelha por R$ 15 via WhatsApp">
+                <div><b>Sobrancelha</b><span class="d">Na navalha ou na pinça</span></div>
+                <div class="row-price">
+                  <span class="p">R$ 15</span>
+                  <span class="action-tag">Agendar &rarr;</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3>Planos mensais</h3>
+          <p class="section-hint">Toque para assinar com economia garantida:</p>
+          <ul class="rows">
+            <li>
+              <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20assinar%20o%20Plano%20Essencial%20da%20BarbeMan." target="_blank" rel="noopener" class="row-link" aria-label="Assinar Plano Essencial por R$ 129 ao mês via WhatsApp">
+                <div>
+                  <b>Essencial</b>
+                  <span class="d">3 cortes por mês <span class="saving-tag">(Economize R$ 21/mês)</span></span>
+                </div>
+                <div class="row-price">
+                  <span class="p">R$ 129 <small>/mês</small></span>
+                  <span class="action-tag">Assinar &rarr;</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20assinar%20o%20Plano%20Completo%20da%20BarbeMan." target="_blank" rel="noopener" class="row-link" aria-label="Assinar Plano Completo por R$ 249 ao mês via WhatsApp">
+                <div>
+                  <span class="badge-rec">Mais escolhido &bull; Economize R$ 71/mês</span>
+                  <b>Completo</b>
+                  <span class="d">4 cortes e 4 barbas por mês</span>
+                </div>
+                <div class="row-price">
+                  <span class="p">R$ 249 <small>/mês</small></span>
+                  <span class="action-tag">Assinar &rarr;</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20assinar%20o%20Plano%20Clube%20da%20BarbeMan." target="_blank" rel="noopener" class="row-link" aria-label="Assinar Plano Clube por R$ 329 ao mês via WhatsApp">
+                <div>
+                  <b>Clube</b>
+                  <span class="d">Cortes e barbas à vontade, mais 10% em produtos</span>
+                </div>
+                <div class="row-price">
+                  <span class="p">R$ 329 <small>/mês</small></span>
+                  <span class="action-tag">Assinar &rarr;</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3: SOBRE NÓS -->
+  <section class="slide s-sobre" data-hash="sobre" data-title="Sobre nós" data-thumb="img/navalha.webp" aria-roledescription="slide" aria-label="3 de 3: Sobre nós">
+    <picture><source srcset="img/navalha.webp" type="image/webp"><img class="bg" src="img/navalha.jpg" alt="Barbeiro limpando a navalha com um papel, com a cadeira ao fundo."></picture>
+    <div class="content">
+      <h2 class="big">Sobre nós</h2>
+      <div class="sobre">
+        <p>A BarbeMan nasceu de uma ideia simples: um bom corte leva tempo, e ninguém deveria perder o dele numa fila.</p>
+        <p>Atendemos só com hora marcada, com a navalha sempre limpa na sua frente e o barbeiro conversando o quanto você quiser, ou nada.</p>
+      </div>
+      <ul class="fatos">
+        <li><b>Hora marcada</b>Sem fila e sem espera.</li>
+        <li><b>Navalha limpa</b>Lâmina nova ou esterilizada a cada cliente.</li>
+        <li><b>Horário</b>Segunda a sábado, das 9h às 20h.</li>
+      </ul>
+      <p class="demo">Projeto fictício de demonstração, desenvolvido por Morse &amp; Cacciatori.</p>
+    </div>
+  </section>
+
+  <!-- controles -->
+  <div class="ctrl">
+    <button class="arrow" id="prev" aria-label="Slide anterior">&larr;</button>
+    <span class="count" id="count" aria-hidden="true">01 / 03</span>
+    <button class="next" id="next" aria-label="Próximo slide">
+      <img id="thumb" src="img/corte-tesoura.webp" alt="" width="54" height="54">
+      <div><small>Próximo</small><span id="nextlabel">Preços e planos</span></div>
+      <span class="arrow" aria-hidden="true">&rarr;</span>
+    </button>
+  </div>
+  <span class="sr" id="live" aria-live="polite"></span>
+
+  <a class="zap" href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20quero%20agendar%20um%20hor%C3%A1rio%20na%20BarbeMan." target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5.4A8.4 8.4 0 1 1 21 11.5Z"/><path d="M9 8.8c.3 2.4 2.6 4.7 5.5 5.6l1.2-1.3-1.8-.9-.8.7c-.9-.4-1.8-1.3-2.2-2.2l.7-.8-.9-1.8L9 8.8Z"/></svg>
+    <div><b>WhatsApp</b><small>Agende seu horário</small></div>
+  </a>
+</div>
+
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide')),
+      tabs=[].slice.call(document.querySelectorAll('[data-go]')),
+      n=slides.length, i=0,
+      count=document.getElementById('count'), thumb=document.getElementById('thumb'),
+      nextLabel=document.getElementById('nextlabel'), live=document.getElementById('live');
+
+  function pad(x){return (x<10?'0':'')+x}
+
+  function getHashIndex(){
+    var hash=(location.hash||'').replace('#','').toLowerCase();
+    for(var j=0; j<slides.length; j++){
+      if(slides[j].dataset.hash===hash) return j;
+    }
+    return -1;
+  }
+
+  function go(k, updateHash){
+    i=(k+n)%n;
+    slides.forEach(function(s,j){
+      var on=j===i;
+      s.classList.toggle('on',on);
+      s.setAttribute('aria-hidden',!on);
+      s.inert=!on;
+      if(on){
+        var content=s.querySelector('.content');
+        if(content) content.scrollTop=0;
+      }
+    });
+
+    tabs.forEach(function(t){
+      t.setAttribute('aria-current', t.dataset.go==i && i!==0 ? 'true':'false');
+    });
+
+    var nx=slides[(i+1)%n];
+    count.textContent=pad(i+1)+' / '+pad(n);
+    thumb.src=nx.dataset.thumb;
+    nextLabel.textContent=nx.dataset.title;
+    live.textContent='Slide '+(i+1)+' de '+n+': '+slides[i].dataset.title;
+
+    // Preload next slide images to eliminate lag
+    if(nx.dataset.thumb){
+      var pThumb=new Image();
+      pThumb.src=nx.dataset.thumb;
+    }
+    var nextSource=nx.querySelector('picture source');
+    if(nextSource && nextSource.srcset){
+      var pBg=new Image();
+      pBg.src=nextSource.srcset;
+    }
+
+    // Update URL hash without causing abrupt scrolling
+    if(updateHash!==false){
+      var h=slides[i].dataset.hash;
+      if(h && window.history && history.replaceState){
+        history.replaceState(null,'','#'+h);
+      }
+    }
+  }
+
+  document.getElementById('next').onclick=function(){go(i+1)};
+  document.getElementById('prev').onclick=function(){go(i-1)};
+  tabs.forEach(function(t){t.onclick=function(){go(+t.dataset.go)}});
+
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight') go(i+1);
+    else if(e.key==='ArrowLeft') go(i-1);
+  });
+
+  var x0=null;
+  document.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+  document.addEventListener('touchend',function(e){
+    if(x0===null) return;
+    var dx=e.changedTouches[0].clientX-x0;
+    x0=null;
+    if(Math.abs(dx)>60) go(dx<0?i+1:i-1);
+  });
+
+  // Listen to browser navigation (back/forward)
+  window.addEventListener('hashchange',function(){
+    var target=getHashIndex();
+    if(target!==-1 && target!==i){
+      go(target,false);
+    }
+  });
+
+  // Preload all slide backgrounds in background
+  setTimeout(function(){
+    slides.forEach(function(s){
+      var src=s.querySelector('picture source');
+      if(src && src.srcset){
+        var im=new Image();
+        im.src=src.srcset;
+      }
+    });
+  },800);
+
+  // Initialize with URL hash or default to 0
+  var initIndex=getHashIndex();
+  go(initIndex!==-1 ? initIndex : 0, false);
+})();
+</script>
+</body>
+</html>
