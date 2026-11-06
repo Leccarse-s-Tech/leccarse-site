@@ -132,3 +132,5 @@ Ideias organizadas por prioridade. Nada disso é obrigatório; é um mapa do que
 ## Licença
 
 Projeto privado da Morse & Cacciatori. Todos os direitos reservados, incluindo a imagem dos bonecos.
+
+<!-- Vercel deployment trigger: Leccarse Tech rebrand -->
