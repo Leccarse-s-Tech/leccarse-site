@@ -3,448 +3,654 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Morse & Cacciatori | A base tecnológica das suas maiores ideias</title>
-  <meta name="description" content="Software house de Morse & Cacciatori: sites, sistemas e integrações sob medida.">
+  <title>Leccarse Tech | A base tecnológica das suas maiores ideias</title>
+  <meta name="description" content="Leccarse Tech: software house especializada em landing pages de alta conversão, sistemas web sob medida, APIs e automação.">
 
-  <!-- Favicon / Logo M&C para navegadores e Google -->
+  <!-- Favicon / Logo Leccarse Tech -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="48x48" href="img/favicon-48x48.png">
   <link rel="icon" type="image/png" sizes="192x192" href="img/favicon-192x192.png">
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 
   <!-- Open Graph / Redes Sociais -->
-  <meta property="og:title" content="Morse & Cacciatori | A base tecnológica das suas maiores ideias">
-  <meta property="og:description" content="Software house de Morse & Cacciatori: sites, sistemas e integrações sob medida.">
+  <meta property="og:title" content="Leccarse Tech | A base tecnológica das suas maiores ideias">
+  <meta property="og:description" content="Software house formada por três sócios: landing pages, sistemas web e integrações sob medida, feitos por gente.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="img/favicon-512x512.png">
 
-  <!-- Fonte: Space Grotesk (Google Fonts) -->
+  <!-- Preload Hero Lego image for fast LCP -->
+  <link rel="preload" as="image" href="img/lego-socios.webp" type="image/webp">
+
+  <!-- Fontes: Space Grotesk (corpo), Monoton (display), Pixelify Sans (pixel) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Pixelify+Sans:wght@400;600;700&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-  <!-- Bootstrap 5 (grid, navbar, formulário) -->
+  <!-- Bootstrap 5 (grid & utilities) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Nosso CSS: vem DEPOIS do Bootstrap para poder sobrescrever -->
+  <!-- Estilos customizados da Leccarse Tech -->
   <link href="style.css" rel="stylesheet">
 </head>
 <body>
 
-  <!-- ============ MENU ============ -->
-  <nav class="navbar navbar-expand-md site-nav">
-    <div class="container">
-      <a class="navbar-brand" href="#inicio" aria-label="Morse & Cacciatori, início">M&amp;C</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
-              aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="menu">
-        <ul class="navbar-nav gap-md-4">
-          <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
-          <li class="nav-item"><a class="nav-link" href="#metodologia">Como trabalhamos</a></li>
-          <li class="nav-item"><a class="nav-link" href="#cases">Cases</a></li>
-          <li class="nav-item"><a class="nav-link" href="projetos.html">Projetos</a></li>
-          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+  <a href="#inicio" class="skip-link">Pular para o conteúdo principal</a>
+
+  <!-- ============ MOLDURA DE JANELA PRINCIPAL ============ -->
+  <div class="app-window">
+
+    <!-- Barra de Abas no Topo (Scroll-Spy + HUD Progress) -->
+    <header class="window-topbar" aria-label="Indicador de seções da janela">
+      <div class="window-dots" aria-hidden="true">
+        <span class="window-dot window-dot--brand"></span>
+        <span class="window-dot window-dot--navy"></span>
+        <span class="window-dot"></span>
+      </div>
+
+      <nav aria-label="Abas de seção">
+        <ul class="window-tabs">
+          <li><a class="window-tab active" href="#inicio" data-section="inicio">inicio.sh</a></li>
+          <li><a class="window-tab" href="#servicos" data-section="servicos">servicos.py</a></li>
+          <li><a class="window-tab" href="#metodologia" data-section="metodologia">metodologia.md</a></li>
+          <li><a class="window-tab" href="#cases" data-section="cases">cases.json</a></li>
+          <li><a class="window-tab" href="projetos.html">projetos.html</a></li>
+          <li><a class="window-tab" href="#sobre" data-section="sobre">sobre.cfg</a></li>
+          <li><a class="window-tab" href="#contato" data-section="contato">contato.env</a></li>
         </ul>
-      </div>
-    </div>
-  </nav>
+      </nav>
 
-  <main>
-
-    <!-- ============ HERO (igual ao modelo do Canva) ============ -->
-    <section class="hero" id="inicio">
-      <div class="container">
-        <div class="row align-items-center g-4">
-
-          <div class="col-lg-6 text-center hero-figure">
-            <a href="projetos.html" class="hero-avatar-link" title="Clique para conhecer nossos projetos" aria-label="Ver projetos da Morse & Cacciatori">
-              <picture>
-                <source srcset="img/avatares.webp" type="image/webp">
-                <img src="img/avatares.png" width="1100" height="1199"
-                     alt="Morse e Cacciatori em versão LEGO, lado a lado; um deles acena. Clique para ver nossos projetos.">
-              </picture>
-              <span class="avatar-hint">Ver nossos projetos &rarr;</span>
-            </a>
-          </div>
-
-          <div class="col-lg-6 text-center hero-text">
-            <h1>Morse &amp; Cacciatori</h1>
-            <p class="hero-sub">A base tecnológica das suas maiores ideias.</p>
-            <a href="#contato" class="btn btn-ink">Fale com a gente</a>
-          </div>
-
+      <div class="hud-progress" aria-hidden="true" title="Progresso de leitura">
+        <span id="hud-counter">01/06</span>
+        <div class="hud-segments">
+          <span class="hud-seg filled"></span>
+          <span class="hud-seg"></span>
+          <span class="hud-seg"></span>
+          <span class="hud-seg"></span>
+          <span class="hud-seg"></span>
+          <span class="hud-seg"></span>
         </div>
       </div>
-    </section>
+    </header>
 
-    <!-- ============ STACK TECNOLÓGICO ============ -->
-    <div class="tech-strip">
-      <div class="container">
-        <div class="tech-strip-inner">
-          <span class="tech-strip-label">Nossa base técnica:</span>
-          <div class="tech-strip-badges">
-            <span class="tech-pill">Python</span>
-            <span class="tech-pill">Java</span>
-            <span class="tech-pill">PostgreSQL</span>
-            <span class="tech-pill">Docker</span>
-            <span class="tech-pill">REST APIs</span>
-            <span class="tech-pill">HTML5 / CSS3</span>
-            <span class="tech-pill">Bootstrap</span>
-            <span class="tech-pill">Git / Linux</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <main>
 
-    <!-- ============ SERVIÇOS ============ -->
-    <section class="section section-light" id="servicos">
-      <div class="container">
-        <div class="row g-5">
-          <div class="col-lg-4">
-            <h2>O que construímos</h2>
-            <p class="lead-muted">Código limpo, entrega com prazo e os dois sócios acompanhando cada etapa.</p>
+      <!-- ============ HERO INTERATIVO + CONSOLE LATERAL ============ -->
+      <div class="hero-shell">
+        <section class="hero" id="inicio" aria-label="Apresentação Leccarse Tech">
+
+          <!-- Camada 1: Grade Quadriculada Interativa (Scanner + Palavra Pixel) -->
+          <div class="hero-grid-backdrop" aria-hidden="true">
+            <!-- Linha 0 -->
+            <div class="grid-cell grid-cell--accent" data-row="0" data-col="0">
+              OLÁ.<br>SOMOS A<br>LECCARSE&apos;<br>TECH.
+            </div>
+            <div class="grid-cell" data-row="0" data-col="1"></div>
+            <div class="grid-cell" data-row="0" data-col="2"></div>
+            <div class="grid-cell" data-row="0" data-col="3"></div>
+            <div class="grid-cell" data-row="0" data-col="4"></div>
+            <div class="grid-cell" data-row="0" data-col="5"></div>
+            <div class="grid-cell" data-row="0" data-col="6"></div>
+            <div class="grid-cell" data-row="0" data-col="7"></div>
+            <!-- Linha 1 -->
+            <div class="grid-cell" data-row="1" data-col="0"></div>
+            <div class="grid-cell" data-row="1" data-col="1"></div>
+            <div class="grid-cell" data-row="1" data-col="2"></div>
+            <div class="grid-cell" data-row="1" data-col="3"></div>
+            <div class="grid-cell" data-row="1" data-col="4"></div>
+            <div class="grid-cell" data-row="1" data-col="5"></div>
+            <div class="grid-cell" data-row="1" data-col="6"></div>
+            <div class="grid-cell" data-row="1" data-col="7"></div>
+            <!-- Linha 2: LECCARSE distribuído nas células -->
+            <div class="grid-cell" data-row="2" data-col="0">L</div>
+            <div class="grid-cell" data-row="2" data-col="1">E</div>
+            <div class="grid-cell" data-row="2" data-col="2">C</div>
+            <div class="grid-cell" data-row="2" data-col="3">C</div>
+            <div class="grid-cell" data-row="2" data-col="4">A</div>
+            <div class="grid-cell" data-row="2" data-col="5">R</div>
+            <div class="grid-cell" data-row="2" data-col="6">S</div>
+            <div class="grid-cell" data-row="2" data-col="7">E</div>
+            <!-- Linha 3 -->
+            <div class="grid-cell" data-row="3" data-col="0"></div>
+            <div class="grid-cell" data-row="3" data-col="1"></div>
+            <div class="grid-cell" data-row="3" data-col="2"></div>
+            <div class="grid-cell" data-row="3" data-col="3"></div>
+            <div class="grid-cell" data-row="3" data-col="4"></div>
+            <div class="grid-cell" data-row="3" data-col="5"></div>
+            <div class="grid-cell" data-row="3" data-col="6"></div>
+            <div class="grid-cell" data-row="3" data-col="7"></div>
+            <!-- Linha 4 -->
+            <div class="grid-cell" data-row="4" data-col="0"></div>
+            <div class="grid-cell" data-row="4" data-col="1"></div>
+            <div class="grid-cell" data-row="4" data-col="2"></div>
+            <div class="grid-cell" data-row="4" data-col="3"></div>
+            <div class="grid-cell" data-row="4" data-col="4"></div>
+            <div class="grid-cell" data-row="4" data-col="5"></div>
+            <div class="grid-cell" data-row="4" data-col="6"></div>
+            <div class="grid-cell" data-row="4" data-col="7"></div>
           </div>
-          <div class="col-lg-8">
-            <ul class="service-list">
-              <li>
-                <h3>Sites e landing pages</h3>
-                <p>HTML semântico, layout responsivo e carregamento rápido. Páginas pensadas para aparecer bem no Google e transformar visitas em contatos.</p>
-              </li>
-              <li>
-                <h3>Sistemas web sob medida</h3>
-                <p>Back-end, banco de dados e painel administrativo desenhados em torno do seu processo, e não o contrário.</p>
-              </li>
-              <li>
-                <h3>APIs e integrações</h3>
-                <p>Conectamos o seu sistema a pagamentos, planilhas, ERPs e serviços de terceiros via API, sem retrabalho manual.</p>
-              </li>
-              <li>
-                <h3>Automação de processos</h3>
-                <p>Rotinas repetitivas viram scripts e fluxos automáticos, com registro de tudo o que foi executado.</p>
-              </li>
-              <li>
-                <h3>Treinamento para equipes</h3>
-                <p>Capacitamos o seu time para operar e evoluir o sistema entregue, com prática em cima do seu próprio projeto.</p>
-              </li>
+
+          <!-- Palavra Display sobreposta entre a grade e os Legos (Ponto Display 1/3) -->
+          <div class="hero-display-backdrop" aria-hidden="true">LECCARSE</div>
+
+          <div class="container hero-stage">
+            <div class="row align-items-center g-4">
+
+              <!-- Camada 2: Trio de Sócios em Lego (Individualmente Clicáveis + Tilt 3D) -->
+              <div class="col-lg-6 text-center">
+                <div class="hero-lego-scene">
+                  <picture class="hero-lego-picture">
+                    <source srcset="img/lego-socios.webp" type="image/webp">
+                    <img src="img/lego-socios.png" width="1301" height="931" fetchpriority="high"
+                         alt="Os três sócios da Leccarse Tech em versão LEGO lado a lado; o da direita usa fones e acena. Clique em qualquer sócio para ver nossos projetos.">
+                  </picture>
+
+                  <!-- 3 áreas clicáveis independentes (uma para cada boneco Lego) -->
+                  <div class="lego-hotspots" role="group" aria-label="Sócios da Leccarse Tech em Lego">
+                    <a href="projetos.html" class="lego-partner-link"
+                       aria-label="Sócio 1 da Leccarse Tech — Ver projetos da Leccarse Tech">
+                      <span class="lego-partner-tag">[01] Dev &amp; Treinamento &rarr;</span>
+                    </a>
+                    <a href="projetos.html" class="lego-partner-link"
+                       aria-label="Sócio 2 da Leccarse Tech — Ver projetos da Leccarse Tech">
+                      <span class="lego-partner-tag">[02] Front-end &amp; Landing Pages &rarr;</span>
+                    </a>
+                    <a href="projetos.html" class="lego-partner-link"
+                       aria-label="Sócio 3 da Leccarse Tech — Ver projetos da Leccarse Tech">
+                      <span class="lego-partner-tag">[03] Dev &amp; Primeiros Contatos &rarr;</span>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="avatar-hint-bar">
+                  <a href="projetos.html" class="avatar-hint glass-light">
+                    <span>[ clique em qualquer Lego para abrir projetos.html &rarr; ]</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Camada 3: Card de Vidro Fosco com Headline e CTA -->
+              <div class="col-lg-6">
+                <div class="hero-content-card glass-light">
+                  <span class="hero-kicker">// software_house · feito_por_gente</span>
+
+                  <div class="hero-brand-lockup">
+                    <picture>
+                      <source srcset="img/logo-leccarse-navy.webp" type="image/webp">
+                      <img src="img/logo-leccarse-navy.png" width="600" height="243"
+                           class="hero-logo-img" alt="Logotipo Leccarse Tech">
+                    </picture>
+                  </div>
+
+                  <h1>
+                    Leccarse&apos; Tech
+                    <span class="hero-display-word">WEB &amp; CODE</span>
+                  </h1>
+
+                  <p class="hero-sub">
+                    A base tecnológica das suas maiores ideias. Landing pages que convertem, sistemas sob medida e código limpo construído diretamente pelos sócios.
+                  </p>
+
+                  <div class="hero-actions">
+                    <a href="#contato" class="btn btn-ink">Fale com a gente &rarr;</a>
+                    <a href="projetos.html" class="btn-outline-ink">Ver projetos</a>
+                  </div>
+
+                  <div class="hero-code-float glass-dark" aria-hidden="true">
+                    <div><span class="code-hl">def</span> construir_projeto(ideia):</div>
+                    <div>&nbsp;&nbsp;return <span class="code-hl">&quot;codigo_limpo_sem_template&quot;</span></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </section>
+
+        <!-- Painel de Console Lateral Decorativo (Seção 4.4 — Apenas Desktop Largo) -->
+        <aside class="hero-console" aria-hidden="true">
+          <div>
+            <div class="console-header">
+              <span>console.log</span>
+              <span>[ativo]</span>
+            </div>
+            <ul class="console-lines">
+              <li><span class="console-num">001</span><span class="console-kw">init</span> leccarse_engine</li>
+              <li><span class="console-num">002</span>&gt; compilando ideia...</li>
+              <li><span class="console-num">003</span>&gt; cafe: <span class="console-ok">ok</span></li>
+              <li><span class="console-num">004</span>&gt; socios_lego: <span class="console-ok">3 online</span></li>
+              <li><span class="console-num">005</span>&gt; foco: <span class="console-kw">landing_pages</span></li>
+              <li><span class="console-num">006</span>&gt; sistemas: <span class="console-kw">sob_medida</span></li>
+              <li><span class="console-num">007</span>&gt; templates_ia: <span class="console-ok">false</span></li>
+              <li><span class="console-num">008</span>&gt; ego: <span class="console-ok">baixo</span></li>
+              <li><span class="console-num">009</span>&gt; panico: <span class="console-ok">false</span></li>
+              <li class="mt-2"><span class="console-num">010</span><span id="console-easter-output" class="console-ok">&gt; status: pronto_para_deploy</span></li>
             </ul>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- ============ COMO TRABALHAMOS (METODOLOGIA) ============ -->
-    <section class="section" id="metodologia">
-      <div class="container">
-        <div class="row g-5">
-          <div class="col-lg-4">
-            <h2>Como trabalhamos</h2>
-            <p class="lead-muted">Processo transparente em 4 etapas, do primeiro diagnóstico à autonomia total da sua equipe.</p>
-          </div>
-          <div class="col-lg-8">
-            <div class="workflow-steps">
-              <div class="workflow-item">
-                <span class="step-num">01</span>
-                <div class="step-body">
-                  <h3>Diagnóstico &amp; Escopo</h3>
-                  <p>Mapeamos o fluxo do seu negócio e a raiz do gargalo antes de qualquer linha de código. Alinhamento direto com os fundadores, sem intermediários comerciais.</p>
-                </div>
-              </div>
-              <div class="workflow-item">
-                <span class="step-num">02</span>
-                <div class="step-body">
-                  <h3>Desenvolvimento &amp; Alinhamentos</h3>
-                  <p>Ciclos ágeis de código limpo com entregas frequentes para você testar, dar feedback e acompanhar a evolução na prática.</p>
-                </div>
-              </div>
-              <div class="workflow-item">
-                <span class="step-num">03</span>
-                <div class="step-body">
-                  <h3>Entrega &amp; Deploy</h3>
-                  <p>Publicação em produção com segurança, estabilidade e boas práticas. Código testado, sem dependências desnecessárias e totalmente documentado.</p>
-                </div>
-              </div>
-              <div class="workflow-item">
-                <span class="step-num">04</span>
-                <div class="step-body">
-                  <h3>Treinamento &amp; Suporte</h3>
-                  <p>Capacitação prática com Athos no seu próprio projeto, garantindo que o seu time opere e evolua a ferramenta com independência.</p>
-                </div>
-              </div>
+          <button type="button" id="console-easter-btn" class="console-easter-btn" tabindex="-1">
+            $ rodar_ping() &crarr;
+          </button>
+        </aside>
+      </div>
+
+      <!-- ============ STACK TECNOLÓGICO ============ -->
+      <div class="tech-strip">
+        <div class="container">
+          <div class="tech-strip-inner">
+            <span class="tech-strip-label">// nossa_base_tecnica:</span>
+            <div class="tech-strip-badges">
+              <span class="tech-pill">Landing Pages</span>
+              <span class="tech-pill">HTML5 / CSS3</span>
+              <span class="tech-pill">JavaScript</span>
+              <span class="tech-pill">Bootstrap</span>
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">Java</span>
+              <span class="tech-pill">PostgreSQL</span>
+              <span class="tech-pill">Docker</span>
+              <span class="tech-pill">REST APIs</span>
+              <span class="tech-pill">Git / Linux</span>
             </div>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- ============ CASES & PORTFÓLIO (PROBLEMA → SOLUÇÃO → IMPACTO) ============ -->
-    <section class="section section-light" id="cases">
-      <div class="container">
-        <div class="row g-4 mb-5 align-items-end">
-          <div class="col-lg-8">
-            <h2>Cases em destaque</h2>
-            <p class="lead-muted mb-0">Projetos reais e pilotos demonstrando nossa competência na prática, medidos por impacto.</p>
-          </div>
-          <div class="col-lg-4 text-lg-end">
-            <a href="projetos.html" class="btn btn-outline-ink">Ver todos os projetos &rarr;</a>
-          </div>
-        </div>
-
-        <div class="row g-4">
-          <!-- CASE 1: Automação Financeira B3 -->
-          <div class="col-lg-6">
-            <article class="case-card">
-              <div class="case-header">
-                <span class="case-badge">Automação &amp; Finanças</span>
-                <h3 class="case-title">Ranking de Segurança de Ativos (B3)</h3>
-              </div>
-              <div class="case-flow">
-                <div class="flow-step">
-                  <span class="flow-tag flow-problem">O Desafio</span>
-                  <p>Acompanhar 45 empresas na Bolsa manualmente exigia horas de cálculo de múltiplos e análise de oscilação semanal em planilhas sujeitas a erros.</p>
-                </div>
-                <div class="flow-step">
-                  <span class="flow-tag flow-solution">A Solução</span>
-                  <p>Rotina em Python consumindo dados via API Brevi, calculando um índice comparativo de estabilidade (<code>P/E + amplitude + posição de 52 semanas</code>) e painel analítico publicado na Vercel.</p>
-                </div>
-                <div class="flow-step">
-                  <span class="flow-tag flow-result">O Impacto</span>
-                  <p>Processamento instantâneo em segundos com zero esforço manual, oferecendo visão clara e confiável para análise de consistência.</p>
-                </div>
-              </div>
-              <div class="case-footer">
-                <div class="case-techs">
-                  <span class="tech-tag">Python</span>
-                  <span class="tech-tag">API Brevi</span>
-                  <span class="tech-tag">B3</span>
-                  <span class="tech-tag">Lógica Matemática</span>
-                </div>
-                <a href="https://finance-analystic-qv4s5uhey-athos6.vercel.app/" class="case-link" target="_blank" rel="noopener">Acessar painel &rarr;</a>
-              </div>
-            </article>
-          </div>
-
-          <!-- CASE 2: BarbeMan -->
-          <div class="col-lg-6">
-            <article class="case-card">
-              <div class="case-header">
-                <span class="case-badge">Landing Page &amp; Conversão</span>
-                <h3 class="case-title">BarbeMan (Barbearia Conceito)</h3>
-              </div>
-              <div class="case-flow">
-                <div class="flow-step">
-                  <span class="flow-tag flow-problem">O Desafio</span>
-                  <p>Pequenos negócios locais sofrem com templates genéricos e pesados, perdendo clientes por falta de agilidade e clareza no agendamento.</p>
-                </div>
-                <div class="flow-step">
-                  <span class="flow-tag flow-solution">A Solução</span>
-                  <p>Layout estilo apresentação em tela cheia com carrossel dinâmico, código limpo em HTML5, CSS puro e Vanilla JS, com integração direta ao WhatsApp.</p>
-                </div>
-                <div class="flow-step">
-                  <span class="flow-tag flow-result">O Impacto</span>
-                  <p>Carregamento ultrarrápido sem dependências externas, navegação intuitiva por gestos/teclado e conversão em 1 clique.</p>
-                </div>
-              </div>
-              <div class="case-footer">
-                <div class="case-techs">
-                  <span class="tech-tag">HTML5 / CSS3</span>
-                  <span class="tech-tag">Vanilla JS</span>
-                  <span class="tech-tag">WhatsApp</span>
-                </div>
-                <a href="projetos/barbeman/index.html" class="case-link" target="_blank" rel="noopener">Ver demonstração &rarr;</a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ SOBRE ============ -->
-    <section class="section" id="sobre">
-      <div class="container">
-        <div class="row g-5">
-          <div class="col-lg-4">
-            <h2>Quem somos</h2>
-          </div>
-          <div class="col-lg-8">
-            <p class="about-text">
-              Somos dois desenvolvedores que criaram uma software house para entregar software de ponta a ponta:
-              do primeiro contato ao deploy e ao treinamento da sua equipe. Poucos projetos por vez,
-              conversa direta com quem decide e código que dá para manter.
-            </p>
-            <div class="row g-4 mt-1">
-              <div class="col-sm-6">
-                <h3 class="person">Athos Morse</h3>
-                <p class="role">Dev e treinamento</p>
-                <p>Desenvolve as soluções e treina a sua equipe para usá-las e evoluí-las.</p>
-              </div>
-              <div class="col-sm-6">
-                <h3 class="person">Romeu Cacciatori</h3>
-                <p class="role">Dev e primeiros contatos</p>
-                <p>Desenvolve e cuida da conversa inicial, para entender o seu problema antes de escrever a primeira linha.</p>
+      <!-- ============ SERVIÇOS (01/05) ============ -->
+      <section class="section section-light" id="servicos">
+        <div class="container">
+          <div class="row g-5">
+            <div class="col-lg-4">
+              <span class="section-index">01/05 · servicos.py</span>
+              <h2>O que construímos</h2>
+              <p class="lead-muted">Código limpo, entrega com prazo e os sócios acompanhando cada etapa do início ao deploy.</p>
+              <div class="section-terminal-bar" aria-hidden="true">
+                <span id="services-typewriter" data-text="> leccarse --listar-servicos --sob-medida">&gt; leccarse --listar-servicos</span>
+                <span class="terminal-cursor"></span>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ CONTATO ============ -->
-    <section class="section section-gradient" id="contato">
-      <div class="container">
-        <div class="row g-5">
-          <div class="col-lg-5">
-            <h2>Vamos tirar sua ideia do papel</h2>
-            <p class="lead-ink">Conte o que você precisa. Respondemos rápido, direto com os fundadores.</p>
-
-            <!-- Vantagens do contato e da conversa inicial -->
-            <div class="contact-perks">
-              <div class="perk-item">
-                <span class="perk-icon" aria-hidden="true">&#10003;</span>
-                <div>
-                  <strong>Diagnóstico &amp; Imersão Técnica</strong>
-                  <p>Entendimento aprofundado do seu problema, regras de negócio e requisitos essenciais.</p>
-                </div>
-              </div>
-              <div class="perk-item">
-                <span class="perk-icon" aria-hidden="true">&#10003;</span>
-                <div>
-                  <strong>Alinhamento de 30 minutos sem custo</strong>
-                  <p>Conversa inicial para avaliar viabilidade, boas práticas, normas e arquitetura ideal.</p>
-                </div>
-              </div>
-              <div class="perk-item">
-                <span class="perk-icon" aria-hidden="true">&#10003;</span>
-                <div>
-                  <strong>Contato direto com quem constrói</strong>
-                  <p>Você fala diretamente com Athos e Romeu, sem intermediários comerciais.</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Canais diretos de contato -->
-            <div class="contact-channels mt-4">
-              <div class="mb-3">
-                <a href="https://wa.me/5511976431933?text=Ol%C3%A1%2C%20Morse%20%26%20Cacciatori!%20Gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" aria-label="Conversar pelo WhatsApp">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-                  </svg>
-                  <span>Falar no WhatsApp: (11) 97643-1933</span>
-                </a>
-              </div>
-              <ul class="contact-links">
-                <li>
-                  <span class="contact-name">Athos Morse</span>
-                  <a href="mailto:athosathos10@gmail.com">athosathos10@gmail.com</a>
+            <div class="col-lg-8">
+              <ul class="service-list">
+                <li class="reveal-grid-item">
+                  <h3>
+                    <span>Sites e landing pages</span>
+                    <span class="service-tag-pixel">[destaque]</span>
+                  </h3>
+                  <p>HTML semântico, identidade visual própria, layout responsivo e carregamento rápido. Páginas pensadas para aparecer bem no Google e transformar visitas em contatos reais.</p>
                 </li>
-                <li>
-                  <span class="contact-name">Romeu Cacciatori</span>
-                  <a href="mailto:romeusoares15@gmail.com">romeusoares15@gmail.com</a>
+                <li class="reveal-grid-item">
+                  <h3>
+                    <span>Sistemas web sob medida</span>
+                    <span class="service-tag-pixel">[full-stack]</span>
+                  </h3>
+                  <p>Back-end, banco de dados e painel administrativo desenhados em torno do seu processo, e não o contrário.</p>
+                </li>
+                <li class="reveal-grid-item">
+                  <h3>
+                    <span>APIs e integrações</span>
+                    <span class="service-tag-pixel">[conectividade]</span>
+                  </h3>
+                  <p>Conectamos o seu sistema a pagamentos, planilhas, ERPs e serviços de terceiros via API, sem retrabalho manual.</p>
+                </li>
+                <li class="reveal-grid-item">
+                  <h3>
+                    <span>Automação de processos</span>
+                    <span class="service-tag-pixel">[scripts]</span>
+                  </h3>
+                  <p>Rotinas repetitivas viram scripts e fluxos automáticos, com registro de tudo o que foi executado.</p>
+                </li>
+                <li class="reveal-grid-item">
+                  <h3>
+                    <span>Treinamento para equipes</span>
+                    <span class="service-tag-pixel">[autonomia]</span>
+                  </h3>
+                  <p>Capacitamos o seu time para operar e evoluir o sistema entregue, com prática em cima do seu próprio projeto.</p>
                 </li>
               </ul>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div class="col-lg-7">
-            <form action="https://formspree.io/f/mqpeylew" method="POST" class="contact-form" id="form-contato">
-              <input type="hidden" name="_subject" value="Novo contato pelo site Morse & Cacciatori">
-              <div class="mb-3">
-                <label for="nome" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="nome" name="nome" autocomplete="name" required>
+      <!-- ============ COMO TRABALHAMOS / METODOLOGIA (02/05) ============ -->
+      <section class="section" id="metodologia">
+        <div class="container">
+          <div class="row g-5">
+            <div class="col-lg-4">
+              <span class="section-index">02/05 · metodologia.md</span>
+              <h2>Como trabalhamos</h2>
+              <p class="lead-muted">Processo transparente em 4 etapas, do primeiro diagnóstico à autonomia total da sua equipe.</p>
+            </div>
+            <div class="col-lg-8">
+              <div class="workflow-steps">
+                <div class="workflow-item reveal-grid-item">
+                  <span class="step-num">01</span>
+                  <div class="step-body">
+                    <h3>Diagnóstico &amp; Escopo</h3>
+                    <p>Mapeamos o fluxo do seu negócio e a raiz do gargalo antes de qualquer linha de código. Alinhamento direto com os fundadores, sem intermediários comerciais.</p>
+                  </div>
+                </div>
+                <div class="workflow-item reveal-grid-item">
+                  <span class="step-num">02</span>
+                  <div class="step-body">
+                    <h3>Desenvolvimento &amp; Alinhamentos</h3>
+                    <p>Ciclos ágeis de código limpo com entregas frequentes para você testar, dar feedback e acompanhar a evolução na prática.</p>
+                  </div>
+                </div>
+                <div class="workflow-item reveal-grid-item">
+                  <span class="step-num">03</span>
+                  <div class="step-body">
+                    <h3>Entrega &amp; Deploy</h3>
+                    <p>Publicação em produção com segurança, estabilidade e boas práticas. Código testado, sem dependências desnecessárias e totalmente documentado.</p>
+                  </div>
+                </div>
+                <div class="workflow-item reveal-grid-item">
+                  <span class="step-num">04</span>
+                  <div class="step-body">
+                    <h3>Treinamento &amp; Suporte</h3>
+                    <p>Capacitação prática com Athos no seu próprio projeto, garantindo que o seu time opere e evolua a ferramenta com independência.</p>
+                  </div>
+                </div>
               </div>
-              <div class="mb-3">
-                <label for="email" class="form-label">E-mail</label>
-                <input type="email" class="form-control" id="email" name="email" autocomplete="email" required>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ CASES & PORTFÓLIO (03/05) ============ -->
+      <section class="section section-light" id="cases">
+        <div class="container">
+          <div class="row g-4 mb-5 align-items-end">
+            <div class="col-lg-8">
+              <span class="section-index">03/05 · cases.json</span>
+              <h2>Cases em destaque</h2>
+              <p class="lead-muted mb-0">Projetos reais e pilotos demonstrando nossa competência na prática, medidos por impacto.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+              <a href="projetos.html" class="btn-outline-ink">Ver todos os projetos &rarr;</a>
+            </div>
+          </div>
+
+          <div class="row g-4">
+            <!-- CASE 1: BarbeMan (Landing Page & Conversão) -->
+            <div class="col-lg-6">
+              <article class="case-card reveal-grid-item">
+                <div class="case-header">
+                  <span class="case-badge">Landing Page &amp; Conversão</span>
+                  <h3 class="case-title">BarbeMan (Barbearia Conceito)</h3>
+                </div>
+                <div class="case-flow">
+                  <div class="flow-step">
+                    <span class="flow-tag flow-problem">O Desafio</span>
+                    <p>Pequenos negócios locais sofrem com templates genéricos e pesados, perdendo clientes por falta de agilidade e clareza no agendamento.</p>
+                  </div>
+                  <div class="flow-step">
+                    <span class="flow-tag flow-solution">A Solução</span>
+                    <p>Layout estilo apresentação em tela cheia com carrossel dinâmico, código limpo em HTML5, CSS puro e Vanilla JS, com integração direta ao WhatsApp.</p>
+                  </div>
+                  <div class="flow-step">
+                    <span class="flow-tag flow-result">O Impacto</span>
+                    <p>Carregamento ultrarrápido sem dependências externas, navegação intuitiva por gestos/teclado e conversão em 1 clique.</p>
+                  </div>
+                </div>
+                <div class="case-footer">
+                  <div class="case-techs">
+                    <span class="tech-tag">HTML5 / CSS3</span>
+                    <span class="tech-tag">Vanilla JS</span>
+                    <span class="tech-tag">WhatsApp</span>
+                  </div>
+                  <a href="projetos/barbeman/index.html" class="case-link" target="_blank" rel="noopener">Ver demonstração &rarr;</a>
+                </div>
+              </article>
+            </div>
+
+            <!-- CASE 2: Automação Financeira B3 -->
+            <div class="col-lg-6">
+              <article class="case-card reveal-grid-item">
+                <div class="case-header">
+                  <span class="case-badge">Automação &amp; Finanças</span>
+                  <h3 class="case-title">Ranking de Segurança de Ativos (B3)</h3>
+                </div>
+                <div class="case-flow">
+                  <div class="flow-step">
+                    <span class="flow-tag flow-problem">O Desafio</span>
+                    <p>Acompanhar 45 empresas na Bolsa manualmente exigia horas de cálculo de múltiplos e análise de oscilação semanal em planilhas sujeitas a erros.</p>
+                  </div>
+                  <div class="flow-step">
+                    <span class="flow-tag flow-solution">A Solução</span>
+                    <p>Rotina em Python consumindo dados via API Brevi, calculando um índice comparativo de estabilidade (<code>P/E + amplitude + posição de 52 semanas</code>) e painel analítico publicado na Vercel.</p>
+                  </div>
+                  <div class="flow-step">
+                    <span class="flow-tag flow-result">O Impacto</span>
+                    <p>Processamento instantâneo em segundos com zero esforço manual, oferecendo visão clara e confiável para análise de consistência.</p>
+                  </div>
+                </div>
+                <div class="case-footer">
+                  <div class="case-techs">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">API Brevi</span>
+                    <span class="tech-tag">B3</span>
+                    <span class="tech-tag">Lógica Matemática</span>
+                  </div>
+                  <a href="https://finance-analystic-qv4s5uhey-athos6.vercel.app/" class="case-link" target="_blank" rel="noopener">Acessar painel &rarr;</a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SOBRE (04/05) ============ -->
+      <section class="section" id="sobre">
+        <div class="container">
+          <div class="row g-5">
+            <div class="col-lg-4">
+              <span class="section-index">04/05 · sobre.cfg</span>
+              <h2>Quem somos</h2>
+              <p class="lead-muted">Três sócios construindo experiências web com identidade própria e engenharia sólida.</p>
+            </div>
+            <div class="col-lg-8">
+              <p class="about-text">
+                A <strong>Leccarse Tech</strong> nasceu da união de três sócios desenvolvedores para entregar landing pages e sistemas de ponta a ponta: do primeiro contato ao deploy e ao treinamento da sua equipe. Poucos projetos por vez, conversa direta com quem decide e código feito por gente — fácil de manter e evoluir.
+              </p>
+              <div class="row g-4 mt-2">
+                <div class="col-md-4">
+                  <div class="partner-card reveal-grid-item">
+                    <h3 class="person">Athos Morse</h3>
+                    <p class="role">// Dev &amp; Treinamento</p>
+                    <p class="mb-0">Desenvolve as soluções e treina a sua equipe para operá-las e evoluí-las com autonomia.</p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="partner-card reveal-grid-item">
+                    <h3 class="person">Romeu Cacciatori</h3>
+                    <p class="role">// Dev &amp; Primeiros Contatos</p>
+                    <p class="mb-0">Desenvolve e conduz a conversa inicial para mapear seu problema antes da primeira linha de código.</p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="partner-card reveal-grid-item">
+                    <h3 class="person">Trio Leccarse</h3>
+                    <p class="role">// Design, Front-end &amp; Produto</p>
+                    <p class="mb-0">Arquitetura de interface, performance e conversão trabalhando juntas em cada entrega.</p>
+                  </div>
+                </div>
               </div>
-              <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="agendar_chamada" name="agendar_chamada" value="Sim, quero agendar conversa de 30min">
-                <label class="form-check-label" for="agendar_chamada">
-                  Quero agendar uma conversa inicial de 30 minutos (diagnóstico e alinhamento de escopo)
-                </label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ CONTATO COM VIDRO FOSCO (05/05) ============ -->
+      <section class="section section-gradient" id="contato">
+        <div class="container">
+          <div class="row g-5 align-items-start">
+            <div class="col-lg-5">
+              <span class="section-index">05/05 · contato.env</span>
+              <h2>Vamos tirar sua ideia do papel</h2>
+              <p class="lead-ink">Conte o que você precisa. Respondemos rápido, direto com os fundadores.</p>
+
+              <!-- Vantagens do contato e da conversa inicial -->
+              <div class="contact-perks">
+                <div class="perk-item glass-light">
+                  <span class="perk-icon" aria-hidden="true">01</span>
+                  <div>
+                    <strong>Diagnóstico &amp; Imersão Técnica</strong>
+                    <p>Entendimento aprofundado do seu problema, regras de negócio e requisitos essenciais.</p>
+                  </div>
+                </div>
+                <div class="perk-item glass-light">
+                  <span class="perk-icon" aria-hidden="true">02</span>
+                  <div>
+                    <strong>Alinhamento de 30 minutos sem custo</strong>
+                    <p>Conversa inicial para avaliar viabilidade, boas práticas, normas e arquitetura ideal.</p>
+                  </div>
+                </div>
+                <div class="perk-item glass-light">
+                  <span class="perk-icon" aria-hidden="true">03</span>
+                  <div>
+                    <strong>Contato direto com quem constrói</strong>
+                    <p>Você fala diretamente com os sócios da Leccarse Tech, sem intermediários comerciais.</p>
+                  </div>
+                </div>
               </div>
-              <div class="mb-3">
-                <label for="mensagem" class="form-label">Sobre o que você quer conversar?</label>
-                <textarea class="form-control" id="mensagem" name="mensagem" rows="4" required></textarea>
+
+              <!-- Canais diretos de contato -->
+              <div class="contact-channels mt-4">
+                <div class="mb-3">
+                  <a href="https://wa.me/5511976431933?text=Ol%C3%A1%2C%20Morse%20%26%20Cacciatori!%20Gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer" class="btn-whatsapp" aria-label="Conversar pelo WhatsApp">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                    </svg>
+                    <span>Falar no WhatsApp: (11) 97643-1933</span>
+                  </a>
+                </div>
+                <ul class="contact-links">
+                  <li>
+                    <span class="contact-name">Athos Morse</span>
+                    <a href="mailto:athosathos10@gmail.com">athosathos10@gmail.com</a>
+                  </li>
+                  <li>
+                    <span class="contact-name">Romeu Cacciatori</span>
+                    <a href="mailto:romeusoares15@gmail.com">romeusoares15@gmail.com</a>
+                  </li>
+                </ul>
               </div>
-              <button type="submit" id="btn-submit" class="btn btn-ink">Enviar mensagem</button>
-              <div id="form-status" class="form-status d-none mt-3" role="alert"></div>
-            </form>
+            </div>
+
+            <div class="col-lg-7">
+              <div class="contact-glass-panel glass-light">
+                <form action="https://formspree.io/f/mqpeylew" method="POST" class="contact-form" id="form-contato">
+                  <input type="hidden" name="_subject" value="Novo contato pelo site Leccarse Tech (Morse & Cacciatori)">
+                  <div class="mb-3">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="nome" name="nome" autocomplete="name" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="email" class="form-label">E-mail</label>
+                    <input type="email" class="form-control" id="email" name="email" autocomplete="email" required>
+                  </div>
+                  <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="agendar_chamada" name="agendar_chamada" value="Sim, quero agendar conversa de 30min">
+                    <label class="form-check-label" for="agendar_chamada">
+                      Quero agendar uma conversa inicial de 30 minutos (diagnóstico e alinhamento de escopo)
+                    </label>
+                  </div>
+                  <div class="mb-3">
+                    <label for="mensagem" class="form-label">Sobre o que você quer conversar?</label>
+                    <textarea class="form-control" id="mensagem" name="mensagem" rows="4" required></textarea>
+                  </div>
+                  <button type="submit" id="btn-submit" class="btn btn-ink">Enviar mensagem &rarr;</button>
+                  <div id="form-status" class="form-status d-none mt-3" role="alert"></div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ============ RODAPÉ EM MICROTEXTOS + SELO (Seção 4.5, Ref 2) ============ -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <span class="footer-col-label">// 01. leccarse_tech</span>
+            <p class="footer-microtext">
+              Software house de três sócios.<br>
+              &copy; 2026 Leccarse Tech (Morse &amp; Cacciatori).
+            </p>
+          </div>
+          <div>
+            <span class="footer-col-label">// 02. mapa_do_sistema</span>
+            <p class="footer-microtext">
+              <a href="projetos.html">Projetos</a> &middot;
+              <a href="#servicos">Serviços</a> &middot;
+              <a href="#metodologia">Metodologia</a> &middot;
+              <a href="#sobre">Sobre</a>
+            </p>
+          </div>
+          <div>
+            <span class="footer-col-label">// 03. contato_direto</span>
+            <p class="footer-microtext">
+              <a href="#contato">Iniciar orçamento</a> &middot;
+              <a href="https://wa.me/5511976431933" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            </p>
+          </div>
+          <div class="text-md-end">
+            <a href="#inicio" class="footer-seal" aria-label="Voltar ao topo — Leccarse Tech">
+              <picture>
+                <source srcset="img/logo-leccarse-navy.webp" type="image/webp">
+                <img src="img/logo-leccarse-navy.png" width="600" height="243" alt="Selo Leccarse Tech">
+              </picture>
+            </a>
           </div>
         </div>
       </div>
-    </section>
+    </footer>
 
-  </main>
+  </div><!-- /.app-window -->
+
+  <!-- ============ NAVEGAÇÃO EM PÍLULA FLUTUANTE NA BASE (Seção 4.3, Ref 1) ============ -->
+  <div class="nav-pill-wrapper">
+    <nav class="nav-pill glass-dark" aria-label="Navegação principal">
+      <a class="nav-pill-brand" href="#inicio" aria-label="Leccarse Tech — Início">
+        <picture>
+          <source srcset="img/logo-leccarse-verde.webp" type="image/webp">
+          <img src="img/logo-leccarse-verde.png" width="600" height="243" class="nav-pill-logo" alt="Leccarse Tech">
+        </picture>
+      </a>
+
+      <button type="button" class="nav-pill-toggle" id="nav-pill-toggle"
+              aria-controls="nav-pill-links" aria-expanded="false" aria-label="Alternar menu de navegação">
+        [ menu ]
+      </button>
+
+      <ul class="nav-pill-links" id="nav-pill-links">
+        <li><a class="nav-pill-link" href="#servicos" data-section="servicos">Serviços</a></li>
+        <li><a class="nav-pill-link" href="#metodologia" data-section="metodologia">Como trabalhamos</a></li>
+        <li><a class="nav-pill-link" href="#cases" data-section="cases">Cases</a></li>
+        <li><a class="nav-pill-link" href="projetos.html">Projetos</a></li>
+        <li><a class="nav-pill-link" href="#sobre" data-section="sobre">Sobre</a></li>
+      </ul>
+
+      <a href="#contato" class="nav-pill-cta">Orçamento &rarr;</a>
+    </nav>
+  </div>
 
   <!-- Botão flutuante do WhatsApp -->
-  <a href="https://wa.me/5511976431933?text=Ol%C3%A1%2C%20Morse%20%26%20Cacciatori!%20Gostaria%20de%20conversar%20sobre%20um%20projeto." 
-     class="btn-whatsapp-float" 
-     target="_blank" 
-     rel="noopener noreferrer" 
-     aria-label="Falar no WhatsApp com Morse e Cacciatori" 
+  <a href="https://wa.me/5511976431933?text=Ol%C3%A1%2C%20Morse%20%26%20Cacciatori!%20Gostaria%20de%20conversar%20sobre%20um%20projeto."
+     class="btn-whatsapp-float"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Falar no WhatsApp com Leccarse Tech"
      title="Falar no WhatsApp: (11) 97643-1933">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
     </svg>
     <span class="btn-whatsapp-text">WhatsApp</span>
   </a>
 
-  <footer class="site-footer">
-    <div class="container">
-      <span>&copy; 2026 Morse &amp; Cacciatori</span>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Envio do formulário via AJAX/Fetch sem recarregar a tela -->
-  <script>
-    (function () {
-      const form = document.getElementById('form-contato');
-      const formStatus = document.getElementById('form-status');
-      const btnSubmit = document.getElementById('btn-submit');
-
-      if (!form || !formStatus || !btnSubmit) return;
-
-      form.addEventListener('submit', async function (event) {
-        event.preventDefault();
-
-        // Feedback imediato de carregamento
-        btnSubmit.disabled = true;
-        const originalText = btnSubmit.innerHTML;
-        btnSubmit.innerHTML = 'Enviando...';
-        formStatus.className = 'form-status d-none mt-3';
-        formStatus.textContent = '';
-
-        try {
-          const formData = new FormData(form);
-          const response = await fetch(form.action, {
-            method: form.method,
-            body: formData,
-            headers: { 'Accept': 'application/json' }
-          });
-
-          if (response.ok) {
-            formStatus.className = 'form-status form-status-success alert alert-success mt-3';
-            formStatus.innerHTML = '<strong>Mensagem enviada com sucesso!</strong> Obrigado pelo contato. Responderemos em breve.';
-            form.reset();
-          } else {
-            const data = await response.json();
-            const message = data.errors ? data.errors.map(function(e) { return e.message; }).join(', ') : 'Houve um erro no envio.';
-            formStatus.className = 'form-status form-status-error alert alert-danger mt-3';
-            formStatus.innerHTML = '<strong>Não foi possível enviar:</strong> ' + message + '. Você também pode nos chamar no WhatsApp ou por e-mail.';
-          }
-        } catch (error) {
-          formStatus.className = 'form-status form-status-error alert alert-danger mt-3';
-          formStatus.innerHTML = '<strong>Erro de conexão:</strong> Não conseguimos enviar sua mensagem. Por favor, tente pelo WhatsApp ou envie um e-mail.';
-        } finally {
-          btnSubmit.disabled = false;
-          btnSubmit.innerHTML = originalText;
-        }
-      });
-    })();
-  </script>
+  <script src="script.js" defer></script>
 </body>
 </html>
