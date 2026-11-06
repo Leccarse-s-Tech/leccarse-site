@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="110" fill="#06180e"/>
-  <rect x="8" y="8" width="496" height="496" rx="102" fill="none" stroke="#49f96b" stroke-width="12" stroke-opacity="0.38"/>
-  <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" font-family="'Space Grotesk', system-ui, -apple-system, sans-serif" font-weight="700" font-size="210" fill="#49f96b" letter-spacing="-3">M&amp;C</text>
+  <rect width="512" height="512" rx="110" fill="#00bf63"/>
+  <rect x="12" y="12" width="488" height="488" rx="98" fill="none" stroke="#1f1f3e" stroke-width="14" stroke-opacity="0.28"/>
+  <text x="48%" y="56%" text-anchor="middle" dominant-baseline="middle" font-family="'Space Grotesk', system-ui, sans-serif" font-weight="700" font-size="250" fill="#1f1f3e" letter-spacing="-6">L&apos;</text>
 </svg>
