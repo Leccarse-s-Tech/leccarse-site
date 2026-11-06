@@ -1,20 +1,23 @@
-# Morse & Cacciatori — Site institucional
+# Leccarse Tech (Morse & Cacciatori) — Site institucional
 
-Site da **Morse & Cacciatori**, software house de dois sócios: Athos Morse (dev e treinamento) e Romeu Cacciatori (dev e primeiros contatos).
+Site da **Leccarse Tech**, software house formada por três sócios desenvolvedores (incluindo Athos Morse em dev e treinamento e Romeu Cacciatori em dev e primeiros contatos), especializada em landing pages de alta conversão, sistemas web sob medida e automação.
 
 > A base tecnológica das suas maiores ideias.
 
 ## English
 
-Corporate website for **Morse & Cacciatori**, a two-partner software house: Athos Morse (dev and training) and Romeu Cacciatori (dev and first client contact). The site content is in Brazilian Portuguese.
+Corporate website for **Leccarse Tech** (formerly Morse & Cacciatori), a three-partner software house specializing in high-conversion landing pages, custom web systems, and automation. The site content is in Brazilian Portuguese.
 
-**Stack:** plain HTML5 + CSS3, Bootstrap 5.3 via CDN, Space Grotesk via Google Fonts, contact form via Formspree. No build step, no backend.
+**Stack:** plain HTML5 + CSS3, Bootstrap 5.3 CSS via CDN, Space Grotesk + Monoton + Pixelify Sans via Google Fonts, lightweight vanilla JavaScript (`script.js`), contact form via Formspree. No build step, no backend.
 
 **Files**
 
-- `index.html`: single page (hero, services, about, contact)
-- `style.css`: custom styles; colors and font are CSS variables at the top (`:root`)
-- `img/`: minifigure artwork (`avatares.png` and `avatares.webp`, keep both)
+- `index.html`: main page inside the Leccarse window frame (interactive Lego hero with 3D mouse-follow & grid scanner, services, methodology, cases, about, glass contact section)
+- `projetos.html`: portfolio page with custom projects and live demos
+- `style.css`: custom styles; colors and fonts are CSS variables at the top (`:root`)
+- `script.js`: vanilla JS for smooth `requestAnimationFrame` lerp parallax/tilt, scroll-spy window tabs, HUD progress bar, console typewriter, and Formspree AJAX submission
+- `img/`: minifigure artwork (`lego-socios.png` / `lego-socios.webp`, `avatares.png` / `avatares.webp`) and official Leccarse Tech logo assets
+- `referencias/`: structural inspiration references for the Leccarse Tech rebrand
 - `GEMINI.md`: project context for the AI agent (in English)
 
 **Run locally:** open `index.html` in a browser (internet needed for the CDN assets), or run `python3 -m http.server 8000` and visit `http://localhost:8000`.
